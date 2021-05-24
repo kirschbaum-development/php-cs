@@ -103,7 +103,6 @@ return PhpCsFixer\Config::create()
         'phpdoc_add_missing_param_annotation' => true,
         'phpdoc_order' => true,
         'phpdoc_scalar' => true,
-        'phpdoc_separation' => true,
         'phpdoc_single_line_var_spacing' => true,
         'single_trait_insert_per_statement' => true,
         'ordered_class_elements' => [
@@ -112,9 +111,6 @@ return PhpCsFixer\Config::create()
                 'constant',
                 'property',
                 'construct',
-                'public',
-                'protected',
-                'private',
             ],
             'sortAlgorithm' => 'none',
         ],
