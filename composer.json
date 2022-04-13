@@ -3,7 +3,7 @@
     "description": "PHP CS Fixer configuration for Kirschbaum Development Group",
     "type": "metapackage",
     "require": {
-        "friendsofphp/php-cs-fixer": "^2.16"
+        "friendsofphp/php-cs-fixer": "^3.3"
     },
     "authors": [
         {

@@ -12,8 +12,8 @@ $finder = PhpCsFixer\Finder::create()
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
-return PhpCsFixer\Config::create()
-    ->setFinder($finder)
+$config = new PhpCsFixer\Config();
+return $config->setFinder($finder)
     ->setRules([
         '@PSR2' => true,
         'phpdoc_no_empty_return' => false,
@@ -23,9 +23,11 @@ return PhpCsFixer\Config::create()
         ],
         'no_singleline_whitespace_before_semicolons' => true,
         'no_extra_blank_lines' => [
-            'break', 'case', 'continue', 'curly_brace_block', 'default',
-            'extra', 'parenthesis_brace_block', 'return',
-            'square_brace_block', 'switch', 'throw', 'use', 'useTrait', 'use_trait',
+            'tokens' => [
+                'break', 'case', 'continue', 'curly_brace_block', 'default',
+                'extra', 'parenthesis_brace_block', 'return',
+                'square_brace_block', 'switch', 'throw', 'use', 'use_trait',
+            ],
         ],
         'cast_spaces' => [
             'space' => 'single',
@@ -46,7 +48,7 @@ return PhpCsFixer\Config::create()
         // 'increment_style' => ['style' => 'post'],
         'short_scalar_cast' => true,
         'class_attributes_separation' => [
-            'elements' => ['const', 'method', 'property'],
+            'elements' => ['const' => 'one', 'method' => 'one', 'property' => 'one', 'trait_import' => 'one'],
         ],
         'no_mixed_echo_print' => [
             'use' => 'echo',
@@ -57,7 +59,7 @@ return PhpCsFixer\Config::create()
         ],
         'no_empty_statement' => true,
         'unary_operator_spaces' => true, // $number ++ becomes $number++
-        'hash_to_slash_comment' => true, // # becomes //
+        'single_line_comment_style' => ['comment_types' => ['hash']], // # becomes //
         'standardize_not_equals' => true, // <> becomes !=
         'native_function_casing' => true,
         'ternary_operator_spaces' => true,
@@ -70,11 +72,11 @@ return PhpCsFixer\Config::create()
         'blank_line_before_statement' => [
             'statements' => [
                 'break', 'case', 'continue',
-                'declare', 'default', 'die',
-                'do', 'exit', 'for', 'foreach',
-                'goto', 'if', 'include',
-                'include_once', 'require', 'require_once',
-                'return', 'switch', 'throw', 'try', 'while', 'yield',
+                'declare', 'default', 'exit',
+                'do', 'for', 'foreach', 'goto',
+                'if', 'include', 'include_once',
+                'require', 'require_once', 'return',
+                 'switch', 'throw', 'try', 'while', 'yield',
             ],
         ],
         'combine_consecutive_unsets' => true,
@@ -87,7 +89,7 @@ return PhpCsFixer\Config::create()
         'compact_nullable_typehint' => true,
         'explicit_string_variable' => true,
         'no_leading_namespace_whitespace' => true,
-        'trailing_comma_in_multiline_array' => true,
+        'trailing_comma_in_multiline' => true,
         'not_operator_with_successor_space' => true,
         'object_operator_without_whitespace' => true,
         'single_blank_line_before_namespace' => true,
@@ -112,11 +114,12 @@ return PhpCsFixer\Config::create()
                 'constant',
                 'property',
                 'construct',
+                'phpunit',
                 'public',
                 'protected',
                 'private',
             ],
-            'sortAlgorithm' => 'none',
+            'sort_algorithm' => 'none',
         ],
         'return_type_declaration' => [
             'space_before' => 'none',

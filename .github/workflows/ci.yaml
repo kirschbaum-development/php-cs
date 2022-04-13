@@ -9,7 +9,7 @@ jobs:
         strategy:
             fail-fast: true
             matrix:
-                php: [7.2, 7.3, 7.4, 8.0]
+                php: [7.2, 7.3, 7.4, 8.0, 8.1]
 
         name: PHP ${{ matrix.php }}
 
@@ -28,7 +28,7 @@ jobs:
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: none
-                    tools: composer:v1
+                    tools: composer:v2
 
             -   name: Install dependencies
                 run: |
