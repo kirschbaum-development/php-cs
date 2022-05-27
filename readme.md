@@ -15,6 +15,13 @@
     - In the right hand pane, after selecting this option, click the browse (`...`) button and select the .php_cs file previously saved in your home directory
     - Ensure PHP Code Sniffer validation is also set to this Coding Standard in its right pane
     - Click Apply and OK
+
+> **IntelliJ idea** users
+> 
+> Be sure to upgrade to >= 2021.1
+> Install `File watchers` plugin
+> use .php_cs from kirschbaum-development/php-cs/.php_cs not home directory
+
 #### File Watcher (fixer runs on save action)
 1. In PHPStorm, create a file watcher (under "Preferences->Tools")
 2. Uncheck all of the "Advanced Options"
